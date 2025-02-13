@@ -1,7 +1,11 @@
+*{
+    margin:0;
+}
 .container{
     margin: 0;
 }
 .header{
+    padding: 10px;
     background-color: palegoldenrod;
     display: flex;
     justify-content: space-between;
@@ -9,6 +13,16 @@
 }
 .productBlock{
     background-color: rgb(247, 208, 157);
+}
+.row{
+    display: flex;
+    justify-content: center;
+}
+.box{
+    background-color: white;
+    margin: 10px;
+    border-radius: 20px ;
+    padding: 10px;
 }
 
 .cartBlock{

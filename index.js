@@ -1,8 +1,8 @@
 
     const products = [
-        { id: 1, name: "P1", price: 25 },
-        { id: 2, name: "P2", price: 45 },
-        { id: 3, name: "P3", price: 30 },
+        { id: 1, name: "Product 1",desc:"Description of the product", price: 25 },
+        { id: 2, name: "Product 2",desc:"Description of the product", price: 45 },
+        { id: 3, name: "Product 3",desc:"Description of the product", price: 30 },
       ];
       const cart = {};
       const addToCart = (id) => {
@@ -73,11 +73,16 @@
 
 
       const showProducts = () => {
-        let str = "";
+        let str = "<div class='row'>";
         products.map((value) => {
           str += `
-          <li>${value.id}-${value.name}-${value.price}-<button onclick=addToCart(${value.id})>Add to Cart</button></li>
+          <div class="box">
+            <h3>${value.name}</h3>
+          <p>${value.desc}</p>
+          <h4>${value.price}</h4>
+          <button onclick=addToCart(${value.id})>Add to Cart</button>
+         </div>
           `;
         });
-        divProducts.innerHTML = str;
+        divProducts.innerHTML = str+"</div>";
       };
