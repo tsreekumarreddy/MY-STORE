@@ -5,8 +5,9 @@
     //     { id: 3, name: "Product 3",desc:"Description of the product", price: 30 },
     //   ];
       let products=[];
-      const cart = {};
+      let cart = {};
       let users = [];
+      let total=0;
 let user = {};
 document.write("<div id=root></div>");
       const addToCart = (id) => {
@@ -36,7 +37,7 @@ document.write("<div id=root></div>");
         showCart();
       };
       const showTotal=()=>{
-        let total=products.reduce((sum,value)=>{
+         total=products.reduce((sum,value)=>{
             if(cart[value.id]){
             return sum +value.price * cart[value.id];
             }
@@ -49,11 +50,16 @@ document.write("<div id=root></div>");
 
       const placeOrder=()=>{
         const obj={
-          customer:"abc@gmail.com",
-          orderValue:100,
+          customer:user.email,
+          items:cart,
+          orderValue:total,
           status:"pending",
         };
         orders.push(obj)
+        cart={}
+        showCart()
+        hideCart()
+        showOrders()
         console.log(orders)
       }
 
@@ -86,15 +92,34 @@ document.write("<div id=root></div>");
         // divcartblock.style.display="none"
         divcartblock.style.left="100%"
      }
+     const showOrders = () => {
+      let str = "<div style='padding:30px'><h3>My Orders</h3>";
+      orders.map((value) => {
+        if (value.customer === user.email) {
+          str += `
+          <div>
+          ${value.customer}-
+          ${value.orderValue}-
+          ${Object.keys(value.items).length}-
+          ${value.status}-
+          </div>
+          `;
+        }
+      });
+      divProducts.innerHTML = str+"</div>";
+    };
 
      const showMain=()=>{
         let str=`
         <div class="container">
       <div class="header">
       <h1>${user.name}</h1>
-      <div>
-      <h4 onclick="displayCart()">CART:<span id="items"></span></h4>
-      <div><button onclick="showLogin()">LogOut</button></div>
+      
+      <div class='menu'>
+      <li onclick='showProducts()'>Home</li>
+      <li onclick="showOrders()">Orders</li>
+      <li onclick="displayCart()">CART:<span id="items"></span></li>
+      <li onclick="showLogin()">LogOut</li>
       </div>
           </div>
       <div class="productBlock">
@@ -106,9 +131,9 @@ document.write("<div id=root></div>");
       <div id="divTotal"></div>
       <button onclick="hideCart()">Close</button>
       </div>
-      </div>
        <hr>
-    <h4>@Copyright 2025.All rights reserved</h4>`;
+    <h4>@Copyright 2025.All rights reserved</h4>
+    </div>`;
       root.innerHTML=str;
       showProducts();
      }

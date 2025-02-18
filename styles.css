@@ -47,6 +47,7 @@
     margin: 15px;
     padding: 8px;
     border-radius: 8px;
+    box-sizing: border-box;
 }
 .register{
     border: 1px solid black;
@@ -60,5 +61,10 @@
     margin: 15px;
     padding: 8px;
     border-radius: 8px;
+    box-sizing: border-box;
 }
 
+.menu li{
+    display: inline-block;
+    padding: 5px;
+}
