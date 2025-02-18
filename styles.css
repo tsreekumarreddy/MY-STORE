@@ -35,3 +35,30 @@
     padding: 20px;
     transition: .5s;
 }
+.login{
+    border: 1px solid black;
+    text-align: center;
+    border-radius: 10px;
+    padding: 50px;
+    margin: 400px;
+}
+
+.login input,button{
+    margin: 15px;
+    padding: 8px;
+    border-radius: 8px;
+}
+.register{
+    border: 1px solid black;
+    text-align: center;
+    border-radius: 10px;
+    padding: 50px;
+    margin: 400px;
+}
+
+.register input,button{
+    margin: 15px;
+    padding: 8px;
+    border-radius: 8px;
+}
+
