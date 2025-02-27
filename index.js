@@ -182,7 +182,7 @@ const showProducts = () => {
       let str = "<div class='row'>";
       products.map((value) => {
         str += `
-        <div class="col-md-4 mb-4 rounded p-3 m-3">
+        <div class="col-md-4 mb-4 rounded p-3 m-3 scale">
             <div class="card">
               <img src="${value.image}" class="card-img-top" alt="${value.name}">
               <div class="card-body">
